@@ -279,9 +279,39 @@ def home():
             }}
             h1 {{
                 color: #ffcc00;
+                text-shadow: 3px 3px 6px #000000, 0 0 10px #ffcc00;
+                font-size: 2.5em;
             }}
             h2 {{
                 color: #cccccc;
+                text-shadow: 2px 2px 4px #000000;
+                font-size: 1.8em;
+            }}
+            h3 {{
+                color: #ffffff;
+                text-shadow: 2px 2px 4px #000000;
+                font-size: 1.4em;
+                border-bottom: 2px solid #ffcc00;
+                padding-bottom: 5px;
+            }}
+            select {{
+                font-size: 18px;
+                padding: 10px;
+                margin: 20px 0;
+                background-color: #333333;
+                color: #ffffff;
+                border: 2px solid #555555;
+                border-radius: 8px;
+                transition: border-color 0.3s, box-shadow 0.3s;
+            }}
+            select:hover {{
+                border-color: #ffcc00;
+                box-shadow: 0 0 8px #ffcc00;
+            }}
+            select:focus {{
+                outline: none;
+                border-color: #ffcc00;
+                box-shadow: 0 0 8px #ffcc00;
             }}
             .form-container {{
                 display: flex;
