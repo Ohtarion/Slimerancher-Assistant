@@ -273,23 +273,44 @@ def home():
                 font-family: Arial, sans-serif;
                 text-align: center;
                 padding: 20px;
-                background-color: #121212;
+                background-image: url('/static/images/Slimerancher2_Background.png');
+                background-size: cover;
                 color: #ffffff;
             }}
             h1 {{
-                color: #ffffff;
+                color: #ffcc00;
             }}
             h2 {{
                 color: #cccccc;
             }}
-            select {{
-                font-size: 18px;
-                padding: 10px;
+            .form-container {{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
                 margin: 20px 0;
-                background-color: #333333;
-                color: #ffffff;
+            }}
+            .form-group {{
+                text-align: center;
+            }}
+            .results {{
+                display: flex;
+                justify-content: space-around;
+                margin: 20px 0;
+            }}
+            .result-box {{
                 border: 1px solid #555555;
-                border-radius: 5px;
+                padding: 10px;
+                width: 45%;
+                background-color: #222222;
+                color: #cccccc;
+            }}
+            .images {{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 20px;
+            }}
+            .images img {{
+                max-width: 300px;
             }}
             p {{
                 font-size: 16px;
@@ -301,21 +322,36 @@ def home():
         <h1>Slime Rancher 2</h1>
         <br>
         <h2>Diet Assistant</h2>
-        <form method="post">
-            <label for="slime">Slime</label><br>
-            <select name="slime" id="slime" onchange="this.form.submit()">
-                <option value="">Select a Slime</option>
-                {"".join(f'<option value="{s.name}"{" selected" if s.name == selected_slime else ""}>{s.name}</option>' for s in slimes)}
-            </select>
-            <br>
-            <label for="food">Food</label><br>
-            <select name="food" id="food" onchange="this.form.submit()">
-                <option value="">Select a Food</option>
-                {"".join(f'<option value="{f.name}"{" selected" if f.name == selected_food else ""}>{f.name}</option>' for f in food)}
-            </select>
-        </form>
-        <p>{info}</p>
-        <img src="/static/images/{selected_slime.replace(' ', '')}.png" alt="{selected_slime}" style="max-width: 300px; margin-top: 20px;">
+        <div class="form-container">
+            <div class="form-group">
+                <label for="slime">Slime</label><br>
+                <select name="slime" id="slime" onchange="this.form.submit()">
+                    <option value="">Select a Slime</option>
+                    {"".join(f'<option value="{s.name}"{" selected" if s.name == selected_slime else ""}>{s.name}</option>' for s in slimes)}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="food">Food</label><br>
+                <select name="food" id="food" onchange="this.form.submit()">
+                    <option value="">Select a Food</option>
+                    {"".join(f'<option value="{f.name}"{" selected" if f.name == selected_food else ""}>{f.name}</option>' for f in food)}
+                </select>
+            </div>
+        </div>
+        <div class="results">
+            <div class="result-box">
+                <h3>Slime Info</h3>
+                <p>{slime_info}</p>
+            </div>
+            <div class="result-box">
+                <h3>Food Info</h3>
+                <p>{food_info}</p>
+            </div>
+        </div>
+        <div class="images">
+            <img src="/static/images/{selected_slime.replace(' ', '')}.png" alt="{selected_slime}">
+            <img src="/static/images/{selected_food.replace(' ', '')}.png" alt="{selected_food}">
+        </div>
     </body>
     </html>
     """
