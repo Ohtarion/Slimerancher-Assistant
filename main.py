@@ -25,6 +25,7 @@ class Slime:
         diet (str): The diet category (e.g., "Everything", "Meat", "Fruits", "Veggies").
         favorite_food (str): The slime's favorite food or "No favorite food".
     """
+
     def __init__(self, name, diet, favorite_food):
         self.name = name
         self.diet = diet
@@ -40,6 +41,7 @@ class Food:
         type (str): The type of food (e.g., "Fruit", "Veggie", "Meat").
         nutrition (int): The nutritional value (not used in current implementation).
     """
+
     def __init__(self, name, type, nutrition):
         self.name = name
         self.type = type
@@ -51,6 +53,7 @@ class Main:
     Main class for handling slime queries (currently not used in the web app,
     but kept for potential future CLI functionality).
     """
+
     def __init__(self):
         pass
 
